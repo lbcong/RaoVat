@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:x="http://xmlns.jcp.org/jsf/passthrough">
+    <body>
+
+        <h:outputStylesheet library="css" name="table-style.css"  />
+        <h:outputStylesheet library="css" name="overide.css"  />
+        <h:outputStylesheet library="css" name="menu.css"  /> 
+
+        <ui:composition>
+
+            <style>
+                .text-overflow{
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    white-space: nowrap;
+                }
+            </style>
+            <ui:repeat var="p" value="#{list}" varStatus="status">
+
+                <h:panelGroup rendered="#{p.memberentity.supplier!=null and p.productentity.stroreProduct>0}">
+                    <h:form> 
+
+                        <div style="height: 330px;" class="col-xs-3 chain-grid">
+                            <h:panelGroup rendered="#{p.imgname==null}">
+
+                                <h:commandLink action="#{postController.ViewPost()}">
+                                    <h:graphicImage  library="images" name="DefaultAdImage.jpg" style="height:auto;width:auto" />
+                                    <f:param name="indexrow" value="#{p.index}"/>
+                                    <f:param name="Action" value="view2"/>
+                                </h:commandLink>
+                                <span class="star"> </span>
+                            </h:panelGroup>
+                            <h:panelGroup rendered="#{p.imgname!=null}">
+
+                                <h:commandLink action="#{postController.ViewPost()}">
+                                    <h:graphicImage rendered="#{p.imgname!=null}" library="images" name="#{p.imgname}" style="height:80px;width:80px" />
+                                    <f:param name="indexrow" value="#{p.index}"/>
+                                     <f:param name="Action" value="view2"/>
+                                </h:commandLink>
+                                <span class="star"> </span>
+                            </h:panelGroup>
+
+                            <div class="grid-chain-bottom">
+                                <h6>
+                                    <h:commandLink   action="#{postController.ViewPost()}">
+                                        <div class="text-overflow" style="width: 178px;">
+                                            <h:outputText x:title="#{p.tittle}"   value="#{p.tittle}" />
+                                        </div>
+                                        <f:param name="indexrow" value="#{p.index}"/>
+                                         <f:param name="Action" value="view2"/>
+                                    </h:commandLink>
+                                </h6>
+                                <div class="star-price">
+                                    <div class="dolor-grid"> 
+                                        <span class="actual">
+                                            <h:outputText value="Giá: #{p.price} đ" />
+                                        </span>
+                                        <br/>
+                                        <span class="actual">
+                                            <h:outputText value="Khu Vực :" />
+                                            <h:outputText value="#{p.provinceName}"/>
+                                        </span>
+                                        <br/>
+                                        <span class="actual">
+                                            <h:outputText value="Danh Mục :" />
+                                            <h:outputText value=" #{p.catagoriesName}" />
+                                        </span>
+                                    </div>
+
+                                    <h:commandLink value="Thêm vào giỏ" style="margin-top: 88px;" class="now-get get-cart" actionListener="#{postController.Addtocart}">
+
+                                        <f:attribute name="idpro" value="#{p.productentity}" />
+
+                                    </h:commandLink>
+                                    <div class="clearfix"> </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </h:form>
+                </h:panelGroup>
+            </ui:repeat>
+            <h:form>
+            <div style="width: 110px;
+                 border: none;" class="col-xs-2 chain-grid">
+                <h:commandButton class="btn-default" value="&lt; prev" action="#{postController.paginator2.prev}"/>
+                <br/>
+                <h:outputText value="#{postController.paginator2.pageIndex} / #{postController.paginator2.pages}"/>
+                <br/>
+                <h:commandButton class="btn-default" value="next &gt;" action="#{postController.paginator2.next}"/>
+                <h:inputHidden value="#{postController.paginator2.pageIndex}"/>
+            </div>
+            </h:form>
+        </ui:composition>
+    </body>
+</html>
+

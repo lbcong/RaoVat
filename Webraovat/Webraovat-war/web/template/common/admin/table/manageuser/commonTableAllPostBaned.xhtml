@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <body>
+        <ui:composition>
+            <h:outputStylesheet  library="css/cssadmin" name="copybt.css"  />
+            <h:outputStylesheet  library="css/cssadmin" name="theme.css"  />
+            <h:outputStylesheet  library="css/cssadmin" name="style.css"  />
+            <div id="box">
+                <h3>Các Bài Đã Đăng</h3>
+                <h:form>
+
+                    <table style="width: 100%;height: auto" width="100%" class="table table-hover table-bordered table-condensed">
+                        <thead>
+                            <tr>                              
+                                <!--                                <th class="a-center">test</th>-->
+
+                                <th style="width: 15px;text-align: left" ><a href="#">ID</a></th>
+                                <th style="width: 100px;text-align: left" ><a href="#">Tình Trạng</a></th>
+
+                                <th style="width: 100px;text-align: left" ><a href="#">Người Đăng</a></th>
+                                <th  style="text-align: left"><a href="#">Tiêu Đề</a></th>
+                                <th style="width: 100px;text-align: left" ><a href="#">Ngày Đăng</a></th>
+
+                                <th style="width: 100px;text-align: left" ><a href="#">Chức Vụ</a></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <ui:repeat   rendered="#{list.size()>0}"    var="p" value="#{list}" varStatus="status">
+
+
+                                <h:panelGroup rendered="#{status.even}">
+                                    <tr>
+
+                                        <!--                                        <td>
+                                                                                    {status.index}
+                                                                                </td>-->
+
+
+                                        <td style="text-align: left">
+                                            <h:outputText value="#{p.postId}" />
+                                        </td>
+                                        <h:panelGroup rendered="#{p.bandate!=null}">
+                                            <td style="text-align: left">
+                                                <h:outputText style="color: red" value="Bị Khóa" />
+                                            </td>
+                                        </h:panelGroup>
+                                        <h:panelGroup rendered="#{p.bandate==null}">
+                                            <td style="text-align: left">
+                                                <h:outputText style="color: blue" value="Không Khóa" />
+                                            </td>
+                                        </h:panelGroup>
+
+
+                                        <!--                                        <h:panelGroup rendered="{(p.isCheck)&amp;&amp;(!p.isdenied)&amp;&amp;(p.bandate==null)}">-->
+
+                                        
+
+                                        <td style="text-align: left">
+                                            <h:outputText value=" #{p.memberentity.username}" />
+                                        </td>
+                                        <td style="text-align: left" class=" text-overflow">
+                                            <h:commandLink action="#{managerController.ViewUserPostBaned()}">
+                                                <h:outputText value="#{p.tittle}" />
+                                                <f:param name="Action" value="viewpost"/>
+                                                <f:param name="indexrow" value="#{p.index}"/>
+                                            </h:commandLink>
+                                        </td>
+
+
+                                        <td style="text-align: left">
+                                            <h:outputText value="#{p.postdate}" >
+                                                <f:convertDateTime pattern="dd-MM-yyyy"/>
+                                            </h:outputText>
+                                        </td>
+
+                                        <td style="text-align: center;">
+
+                                            <h:panelGroup rendered="true">
+                                                <h:commandButton style="margin: 3px;" value="Xem" class="btn-info" action="#{managerController.ViewUserPostBaned()}" >
+                                                    <f:param name="Action" value="viewpost"/>
+                                                    <f:param name="indexrow" value="#{p.index}"/>
+                                                </h:commandButton>
+                                            </h:panelGroup>
+                                        </td>
+                                    </tr>
+                                </h:panelGroup>
+                                <h:panelGroup rendered="#{status.odd}">
+                                    <tr>
+
+                                        <!--                                        <td>
+                                                                                    {status.index}
+                                                                                </td>-->
+
+
+                                        <td style="text-align: left">
+                                            <h:outputText value="#{p.postId}" />
+                                        </td>
+                                        <h:panelGroup rendered="#{p.bandate!=null}">
+                                            <td style="text-align: left">
+                                                <h:outputText style="color: red" value="Bị Khóa" />
+                                            </td>
+                                        </h:panelGroup>
+                                        <h:panelGroup rendered="#{p.bandate==null}">
+                                            <td style="text-align: left">
+                                                <h:outputText style="color: blue" value="Không Khóa" />
+                                            </td>
+                                        </h:panelGroup>
+
+
+
+                                        <td style="text-align: left">
+                                            <h:outputText value=" #{p.memberentity.username}" />
+                                        </td>
+                                        <td style="text-align: left" class=" text-overflow">
+                                            <h:commandLink action="#{managerController.ViewUserPostBaned()}">
+                                                <h:outputText value="#{p.tittle}" />
+                                                <f:param name="Action" value="viewpost"/>
+                                                <f:param name="indexrow" value="#{p.index}"/>
+                                            </h:commandLink>
+                                        </td>
+
+
+
+                                        <td style="text-align: left">
+                                            <h:outputText value="#{p.postdate}" >
+                                                <f:convertDateTime pattern="dd-MM-yyyy"/>
+                                            </h:outputText>
+                                        </td>
+
+                                        <td style="text-align: center;">
+
+                                            <h:panelGroup rendered="true">
+                                                <h:commandButton style="margin: 3px;" value="Xem" class="btn-info" action="#{managerController.ViewUserPostBaned()}" >
+                                                    <f:param name="Action" value="viewpost"/>
+                                                    <f:param name="indexrow" value="#{p.index}"/>
+                                                </h:commandButton>
+                                            </h:panelGroup>
+                                        </td>
+                                    </tr>
+                                </h:panelGroup>
+
+                            </ui:repeat>
+
+                        </tbody>
+                    </table>
+                </h:form>
+                <div>
+                    <h:form>
+
+                        <h:commandButton value="&lt; prev" action="#{managerController.paginator.prev}"/>
+                        <h:outputText value="#{managerController.paginator.pageIndex} / #{managerController.paginator.pages}"/>
+                        <h:commandButton value="next &gt;" action="#{managerController.paginator.next}"/>
+                        <h:inputHidden value="#{managerController.paginator.pageIndex}"/>
+                    </h:form>
+                </div>
+
+
+            </div>
+        </ui:composition>
+    </body>
+</html>
+

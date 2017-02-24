@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <body>
+        <ui:composition>
+            <div id="sidebar">
+                <h:form>
+                    <ul>
+                        <li>
+
+                            <h:commandLink   action="#{managerController.ViewUserInfo()}" >
+                                <f:param name="Action" value="viewuserinfo"/>
+                                Thông tin cá nhân
+
+                            </h:commandLink>
+                        </li>
+                        <li>
+                            <h:commandLink   action="#{managerController.SetupViewUserListPost()}" >
+                                <f:param name="Action" value="viewlistpost"/>
+                                Danh sách các bài 
+                                
+                                được đăng bởi : #{managerController.userData.member.username} (#{managerController.userData.listpost.size()>0?managerController.userData.listpost.size():0})
+
+                            </h:commandLink>
+
+                        </li>
+                        <h:panelGroup rendered="#{managerController.userData.listpostBaned.size()>0}">
+                            <li>
+
+                                <h:commandLink   action="#{managerController.SetupViewUserPostBaned()}" >
+                                    <f:param name="Action" value="viewlistpost"/>
+                                    Danh sách bai` bị khóa bởi : #{managerController.userData.member.username}  (#{managerController.userData.listpostBaned.size()>0?managerController.userData.listpostBaned.size():0})
+
+                                </h:commandLink>
+
+
+                            </li>
+
+                        </h:panelGroup>
+                        <h:panelGroup rendered="#{managerController.userData.listpostChecked.size()>0}">
+                            <li>
+                                <a> 
+
+                                </a>
+
+                                <h:commandLink   action="#{managerController.SetupViewUserPostChecked()}" >
+                                    <f:param name="Action" value="viewlistpost"/>
+                                    Danh sách bai` được duyệt bởi : #{managerController.userData.member.username} (#{managerController.userData.listpostChecked.size()>0?managerController.userData.listpostChecked.size():0})
+
+                                </h:commandLink>
+
+                            </li>
+
+                        </h:panelGroup>
+                        
+                        <h:panelGroup rendered="#{managerController.userData.listpostDenied.size()>0}">
+                            <li>
+                                <a> 
+
+                                </a>
+
+                                <h:commandLink   action="#{managerController.SetupViewUserPostDenied()}" >
+                                    <f:param name="Action" value="viewlistpost"/>
+                                    Danh sách bai` bị từ chối  bởi : #{managerController.userData.member.username} (#{managerController.userData.listpostDenied.size()>0?managerController.userData.listpostDenied.size():0})
+
+                                </h:commandLink>
+
+                            </li>
+
+                        </h:panelGroup>
+                        
+                    </ul>      
+                </h:form> 
+            </div>
+        </ui:composition>
+    </body>
+</html>
+

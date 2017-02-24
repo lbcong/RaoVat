@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <body>
+
+        <h:outputStylesheet library="css" name="table-style.css"  />
+        <h:outputStylesheet library="css" name="overide.css"  />
+        <h:outputStylesheet library="css" name="menu.css"  /> 
+        <ui:composition>
+
+
+
+            <h:form> 
+                <p:dataList  rowIndexVar="index" style="background-color: blueviolet"  value="#{list}" var="p"  type="unordered" itemType="none" paginator="true" rows="10" styleClass="paginated ui-datalist-item " >
+                    <h:panelGroup rendered="#{p.isCheck==true}">
+
+                        <h:panelGrid  columns="3" style="width:100%;"   class="table" columnClasses="col1,col2,col3">
+                            <p:outputPanel >
+                                <h:commandLink action="#{postController.ViewPost()}">
+                                    <h:graphicImage rendered="#{p.imgname==null}" library="images" name="DefaultAdImage.jpg" style="height:auto;width:auto" />
+                                    <h:graphicImage rendered="#{p.imgname!=null}" library="images" name="#{p.imgname}" style="height:80px;width:80px" />
+                                     
+                                    <f:param name="indexrow" value="#{p.index}"/>
+                                </h:commandLink>
+                            </p:outputPanel>
+
+                            <p:outputPanel>
+                                <h:panelGrid  columns="2" >
+
+                                    <h:outputText value="Tiêu Đề :" />
+                                    <h:commandLink action="#{postController.ViewPost()}">
+                                        <h:outputText value="#{p.tittle}" />
+                                        <f:param name="indexrow" value="#{p.index}"/>
+                                         
+                                        
+                                    </h:commandLink>
+
+                                    <h:outputText value="Giá :" />
+                                    <h:outputText value="#{p.price} đ" />
+
+                                    <h:outputText value="Khu Vực :" />
+                                    <h:outputText value="#{p.provinceName}"/>
+
+                                    <h:outputText value="Danh Mục :" />
+                                    <h:outputText value=" #{p.catagoriesName}" />
+                                </h:panelGrid>
+                            </p:outputPanel>
+
+
+                            <p:outputPanel>
+                                <div style="margin-bottom: 1px">
+                                    <h:outputText  value="#{p.datetime.time}" >
+
+                                    </h:outputText>
+                                </div>
+                            </p:outputPanel>
+
+
+
+
+                        </h:panelGrid>
+                    </h:panelGroup>
+                </p:dataList>
+            </h:form>
+
+
+
+
+        </ui:composition>
+    </body>
+</html>
+

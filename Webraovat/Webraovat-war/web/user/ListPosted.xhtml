@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <title>Bootstrap 101 Template</title>
+
+        <!-- Bootstrap -->
+
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </h:head>
+    <body>
+        <ui:composition template="/template/common/commonLayout.xhtml">
+            <ui:define name="content">
+                <div id="wrap">
+                    <div class="container" style="margin-top: 10%">
+                        <div class="row">
+                            <div class="col-md-10">
+                                <ui:include src="/template/common/commonListPostForEdit.xhtml">
+                                    <ui:param name="list" value="#{postController.list}" ></ui:param>
+                                    <ui:param name="days" value="#{postController.obj2}" ></ui:param>
+                                </ui:include>
+                            </div>
+                             <div style="float: right;width: 195px" class="col-xs-2 col-sm-3 sidebar-offcanvas "  >
+                                <h:form>
+                                   
+                                    <div class="list-group" >
+
+                                        <h:commandButton class="list-group-item btn-edit" style="width: 200px" value="Bài đã đăng" action="#{postController.SetupViewListPosted()}" ></h:commandButton>
+                                        <br/>
+                                        <h:commandButton class="list-group-item btn-edit" style="width: 200px" value="Bài yêu thích " action="#{postController.SetupViewBookmark()}" ></h:commandButton>
+                                        <br/>
+                                        <h:commandButton class="list-group-item btn-edit" style="width: 200px" value="Thông tin cá nhân   " action="#{customerController.SetupEdit()}" ></h:commandButton>
+                                        <br/>
+                                        <h:commandButton class="list-group-item btn-edit" style="width: 200px" value="Thay đổi mật khẩu" action="changePassword.xhtml" ></h:commandButton>
+                                        <br/>
+                                       <h:commandButton class="list-group-item btn-edit" style="width: 200px" value="Lịch sử đặt hàng" action="#{postController.SetupListorder()}" ></h:commandButton>
+                                    </div>
+
+                                </h:form>
+                            </div><!--/.sidebar-offcanvas-->
+                        </div>
+                    </div>
+                </div>
+            </ui:define>
+        </ui:composition>
+
+
+
+
+
+
+    </body>
+</html>

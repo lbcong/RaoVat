@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <body>
+        <ui:composition>
+            <h:outputScript library="plugins/jQuery" name="jQuery-2.2.0.min.js" />
+            <script>
+                $(document).ready(function () {
+                    $("#flip1").click(function () {
+                        $("#customsearch").slideToggle("slow");
+                    });
+                });
+
+
+            </script>
+
+            <style> 
+                #panel, #flip1 {
+                    padding: 5px;
+                    text-align: center;
+                    background-color: #e5eecc;
+                    border: solid 1px #c3c3c3;
+                }
+
+                #panel {
+                    padding: 50px;
+                    display: none;
+                }
+            </style>
+            <div id="sidebar">
+                <div class="box">
+                    <h:form id="searchall" class="form2">
+                        <label style="text-align: left" for="lastname">Tên Cần Tìm</label> 
+                        <input type="text"  class="form-control" name="Name" id="Name"/>
+                        <br />
+                        
+                        <br />
+                        <h:commandButton action="#{productController.SetupViewAllSearchProductForManager()}"  style="text-align: center;width: 148px;margin: 0 auto" value="Tìm kiếm">
+                            <f:param name="Action" value="search"/>
+
+                        </h:commandButton>
+
+
+                    </h:form> 
+                </div>
+            </div>
+        </ui:composition>
+    </body>
+</html>
+

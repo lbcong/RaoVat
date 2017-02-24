@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <body>
+        <ui:composition>
+            <h:outputScript library="plugins/jQuery" name="jQuery-2.2.0.min.js" />
+            <script>
+                $(document).ready(function () {
+                    $("#flip1").click(function () {
+                        $("#customsearch").slideToggle("slow");
+                    });
+                });
+
+
+            </script>
+
+            <style> 
+                #panel, #flip1 {
+                    padding: 5px;
+                    text-align: center;
+                    background-color: #e5eecc;
+                    border: solid 1px #c3c3c3;
+                }
+
+                #panel {
+                    padding: 50px;
+                    display: none;
+                }
+            </style>
+            <div id="sidebar">
+                <div class="box">
+                    <h:form id="searchall" class="form2">
+                        <label style="text-align: left" for="lastname">Tên Cần Tìm</label> 
+                        <input type="text"  class="form-control" name="Name" id="Name"/>
+                        <br />
+                        <br />
+                        <label style="text-align: left" for="email">Email </label>
+                        <input type="text"  class="form-control" name="Email" id="Email"/>
+                        <br />
+                        <br />
+                        <label style="text-align: left" for="firstname">Vị trí</label>
+                        <h:selectOneMenu style="width: 148px;margin: 0 auto" class="form-control" id="cityuser" >
+                            <f:selectItem itemLabel="Tất cả" itemValue=""/>
+                            <f:selectItems value="#{provineController.FindAllCity()}" var="p"
+                                           itemLabel="#{p.name}" itemValue="#{p.name}" />
+                        </h:selectOneMenu>
+                        <br />
+                        <br />
+                        <div id="flip1">Ẩn</div>
+                        <br/><br/>
+                            <div id="customsearch">
+                                <label style="text-align: left" for="email">Chức Quyền </label>
+                                <h:selectOneMenu style="width: 148px;margin: 0 auto"   class="form-control text-overflow"  id="rolesearch">
+                                    <f:selectItem itemLabel="Tất Cả" itemValue=""/>
+                                    <f:selectItem itemLabel="Manager" itemValue="Manager"/>
+                                    <f:selectItem itemLabel="Member" itemValue="Member"/>
+                                </h:selectOneMenu>
+                                <br />
+                                <br />
+
+                                <label style="text-align: left" for="email">Kiểu Danh Sách </label>
+                                <h:selectOneMenu style="width: 148px;margin: 0 auto"   class="form-control text-overflow"  id="typesearch">
+                                    <f:selectItem itemLabel="Tất Cả" itemValue=""/>
+                                    <f:selectItem itemLabel="Bị Block" itemValue="Block"/>
+                                    <f:selectItem itemLabel="Đã Kích Hoạt" itemValue="Activity"/>
+                                </h:selectOneMenu>
+                            </div>
+                        
+                        <br />
+                        <br />
+                        <h:commandButton action="#{managerController.SetupViewAllSearchUserForManager()}"  style="text-align: center;width: 148px;margin: 0 auto" value="Tìm kiếm">
+                            <f:param name="Action" value="search"/>
+
+                        </h:commandButton>
+
+
+                    </h:form> 
+                </div>
+            </div>
+        </ui:composition>
+    </body>
+</html>
+

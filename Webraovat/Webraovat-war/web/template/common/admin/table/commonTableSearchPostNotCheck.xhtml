@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <body>
+        <ui:composition>
+            <h:outputStylesheet  library="css/cssadmin" name="copybt.css"  />
+
+            <div id="box">
+                <h3>Bài Chưa Duyệt</h3>
+                <h:form>
+                    <table width="100%" class="table table-hover table-bordered table-condensed">
+                        <thead>
+                            <tr>
+                                <th style="width: 15px;text-align: left" ><a href="#">ID</a></th>
+                                <th style="width: 100px;text-align: left" ><a href="#">Người Đăng</a></th>
+                                <th style="text-align: left;width: 290px"><a href="#">Tiêu Đề</a></th>
+                                <th  style="width: 100px;text-align: left" ><a href="#">Khu Vực</a></th>
+                                <th  style="width: 125px;text-align: left" ><a href="#">Danh Mục</a></th>
+                                <th style="width: 100px;text-align: left" ><a href="#">Trạng Thái</a></th>
+                                <th style="width: 100px;text-align: left" ><a href="#">Ngày Đăng</a></th>
+                                <th style="text-align: left;width: 140px"><a href="#">Thao Tác</a></th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <ui:repeat rendered="#{list.size()>0}"    var="p" value="#{list}" varStatus="status">
+
+                                <h:panelGroup rendered="#{status.even}">
+                                    <tr>
+                                        <td style="text-align: left">
+                                            <h:outputText value="#{p.postId}" />
+                                        </td>
+                                        <td style="text-align: left">
+                                            <h:outputText value=" #{p.memberentity.username}" />
+                                        </td>
+                                        <td style="text-align: left ;width: 290px">
+                                            <h:commandLink action="#{postController.ViewPost()}">
+                                                <h:outputText value="#{p.tittle}" />
+                                                <f:param name="Action" value="adminviewcheck"/>
+                                                <f:param name="indexrow" value="#{p.index}"/>
+                                            </h:commandLink>
+                                        </td>
+
+
+                                        <td style="text-align: left">
+                                            <h:outputText value="#{p.provinceName}" />
+                                        </td>
+                                        <td style="text-align: left" >
+                                            #{p.catagoriesentity.name}
+                                        </td>
+                                        <td style="text-align: left">
+                                            <h:outputText value="#{p.isCheck==true?'Đã Duyệt':'Chưa Duyệt'}" >
+                                            </h:outputText>
+                                        </td>
+
+                                        <td style="text-align: left">
+                                            <h:outputText value="#{p.postdate}" >
+                                                <f:convertDateTime pattern="dd-MM-yyyy"/>
+                                            </h:outputText>
+                                        </td>
+
+                                        <td style="text-align: left">
+                                            <h:commandButton style="margin: 3px;background-color: #2c82c9;" value="Xem Bài" class="btn-info" action="#{postController.ViewPost()}">
+                                                <f:param name="Action" value="adminviewcheck"/>
+                                                <f:param name="indexrow" value="#{p.index}"/>
+                                            </h:commandButton>
+                                            <h:commandButton value=" Khóa Bài" class="btn-info" action="#{postController.SetupBlockPost()}" >
+                                                <f:param name="index" value="#{p.index}"/>
+                                            </h:commandButton>
+                                        </td>
+
+                                    </tr>
+
+                                </h:panelGroup>
+
+                                <h:panelGroup rendered="#{status.odd}">
+                                    <tr>
+                                        <td style="text-align: left">
+                                            <h:outputText value="#{p.postId}" />
+                                        </td>
+                                        <td style="text-align: left">
+                                            <h:outputText value=" #{p.memberentity.username}" />
+                                        </td>
+                                        <td style="text-align: left ;width: 290px">
+                                            <h:commandLink action="#{postController.ViewPost()}">
+                                                <h:outputText value="#{p.tittle}" />
+                                                <f:param name="Action" value="adminviewcheck"/>
+                                                <f:param name="indexrow" value="#{p.index}"/>
+                                            </h:commandLink>
+                                        </td>
+                                        <td style="text-align: left">
+                                            <h:outputText value="#{p.provinceName}" />
+                                        </td>
+                                        <td style="text-align: left" >
+                                            #{p.catagoriesentity.name}
+                                        </td>
+                                        <td style="text-align: left">
+                                            <h:outputText value="#{p.isCheck==true?'Đã Duyệt':'Chưa Duyệt'}" >
+
+                                            </h:outputText>
+                                        </td>
+
+                                        <td style="text-align: left">
+                                            <h:outputText value="#{p.postdate}" >
+                                                <f:convertDateTime pattern="dd-MM-yyyy"/>
+                                            </h:outputText>
+                                        </td>
+
+
+
+                                        <td style="text-align: left">
+                                            <h:commandButton style="margin: 3px;background-color: #2c82c9;" value="Xem Bài" class="btn-info" action="#{postController.ViewPost()}">
+                                                <f:param name="Action" value="adminviewcheck"/>
+                                                <f:param name="indexrow" value="#{p.index}"/>
+                                            </h:commandButton>
+                                            <h:commandButton value=" Khóa Bài" class="btn-info" action="#{postController.SetupBlockPost()}" >
+                                                <f:param name="index" value="#{p.index}"/>
+                                            </h:commandButton>
+                                        </td>
+
+                                    </tr>
+                                </h:panelGroup>
+
+                            </ui:repeat>
+                        </tbody>
+                    </table>
+
+                </h:form>
+
+
+
+            </div>
+        </ui:composition>
+    </body>
+</html>
+

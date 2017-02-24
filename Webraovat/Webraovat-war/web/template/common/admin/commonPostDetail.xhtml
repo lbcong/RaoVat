@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <body>
+        <ui:composition>
+            <div id="box">
+                <h3 id="adduser">Chi Tiết Bài Post</h3>
+                <div>
+                    <h:form  id="form">
+                        <fieldset id="personal">
+                            <legend>Thông tin Người Đăng</legend>
+                            <label for="lastname">Tên : </label> 
+                            <input disabled="true" name="firstname"  value="#{postController.memberentity.username}"/>
+                            <br />
+                            <label for="firstname">Email : </label>
+                            <input  disabled="true" name="firstname" value="#{postController.memberentity.email}"  />
+                            <br />
+                            <label for="email">SĐT : </label>
+                            <input  disabled="true" name="email"  type="text" 
+                                    tabindex="2"  value="#{postController.memberentity.phone}"/>
+                            <br />
+
+
+                            <br />
+                        </fieldset>
+                        <fieldset id="address">
+                            <legend>Thông Tin Bài Post</legend>
+                            <label for="street">Tiêu Đề : </label> 
+                            <input disabled="true" name="street"  value="#{postController.entity.title}" />
+                            <br />
+                            <label for="city">Nội Dung : </label>
+                            <h:inputTextarea disabled="true"  value="#{postController.entity.description}"/>
+                            <br />
+                            <label for="city">Ngày Đăng : </label>
+                            <h:inputText disabled="true" value="#{postController.entity.postDate}">
+                                <f:convertDateTime pattern="dd-MM-yyyy"/>
+                            </h:inputText>
+                            <br />
+                            <label for="city">Vị Trí : </label>
+                            <input disabled="true" name="city" type="text" 
+                                   tabindex="2" value="#{postController.entity.provinceId.name}"/>
+                            <br />
+                            <label for="city">Loại Bài Post : </label>
+                            <input disabled="true" name="city"  type="text" 
+                                   tabindex="2" value="#{postController.entity.typeOfPost?'mua':'bán'}"/>
+                            <br />
+                        </fieldset>
+                        <fieldset >
+                            <legend>Thông Tin Sản Phẩm</legend>
+                            <label for="country">Hình Ảnh : </label> 
+                            <br/>
+                            <h:graphicImage  library="images" name="#{postController.productentity.image}" style="height:350px;width:400px" />
+                            <br />
+                            <label for="zip">Loại Sản Phẩm: </label>
+
+                            <h:inputText disabled="true" value="#{postController.catagoriesentity.name}"/>
+                            <br />
+                            <label for="state">Tên Sản Phẩm : </label>
+                            <input disabled="true" name="state"  type="text" 
+                                   tabindex="2" value="#{postController.productentity.name}"/>
+                            <br />
+                            <label for="state">Tình Trạng Sản Phẩm : </label>
+                            <input disabled="true" name="state"  type="text" 
+                                   tabindex="2" value="#{postController.getProductentity().status==true?'Mới':'Cũ'}"/>
+                            <br />
+                            <label for="tel">Giá : </label>
+                            <input disabled="true" name="tel"  type="text" 
+                                   tabindex="2" value="#{postController.productentity.price}"/>
+
+                        </fieldset>
+                        
+                        
+                        <h:panelGroup rendered="#{postController.viewdata.banlistpostentity.dateBaned!=null}">
+
+                            <fieldset >
+                                <legend>Thông Tin Khóa Bài</legend>
+
+                                <br/>
+                                <label for="state">Tên quản trị viên khóa bài: </label>
+                                <input disabled="true" name="state"  type="text" 
+                                       tabindex="2" value="#{postController.viewdata.banlistpostentity.memberID.username}"/>
+                                <br />
+                                <label for="tel">Lý Do Khóa Bài : </label>
+                                <input disabled="true" name="tel"  type="text" 
+                                       tabindex="2" value="#{postController.viewdata.banlistpostentity.reason}"/>
+                                <br/>
+                                <label for="tel">Ngày Khóa : </label>
+                                <h:inputText disabled="true" value="#{postController.viewdata.banlistpostentity.dateBaned}">
+                                    <f:convertDateTime pattern="dd-MM-yyyy"/>
+                                </h:inputText>
+                                <br/>
+
+                            </fieldset>
+                        </h:panelGroup>
+
+                        <h:panelGroup rendered="#{postController.viewdata.postChecked.checkedDate!=null}">
+
+                            <fieldset >
+                                <legend>Thông Tin Duyệt Bài</legend>
+
+                                <br/>
+                                <label for="state">Tên quản trị viên duyệt bài: </label>
+                                <input disabled="true" name="state"  type="text" 
+                                       tabindex="2" value="#{postController.viewdata.postChecked.memberID.username}"/>
+                                <br />
+
+                                <label for="tel">Ngày Duyệt : </label>
+                                <h:inputText disabled="true" value="#{postController.viewdata.postChecked.checkedDate}">
+                                    <f:convertDateTime pattern="dd-MM-yyyy"/>
+                                </h:inputText>
+                                <br/>
+
+                            </fieldset>
+                        </h:panelGroup>
+
+                        <h:panelGroup rendered="#{postController.viewdata.postdenied.dateDenied!=null}">
+
+                            <fieldset >
+                                <legend>Thông Tin Duyệt Bài</legend>
+
+                                <br/>
+                                <label for="state">Tên quản trị viên duyệt bài: </label>
+                                <input disabled="true" name="state"  type="text" 
+                                       tabindex="2" value="#{postController.viewdata.postdenied.memberID.username}"/>
+                                <br />
+                                <br/>
+                                <label for="state">Lý do không cho đăng bài: </label>
+                                <input disabled="true" name="state"  type="text" 
+                                       tabindex="2" value="#{postController.viewdata.postdenied.reason}"/>
+                                <br />
+                                <label for="tel">Ngày Duyệt : </label>
+                                <h:inputText disabled="true" value="#{postController.viewdata.postdenied.dateDenied}">
+                                    <f:convertDateTime pattern="dd-MM-yyyy"/>
+                                </h:inputText>
+                                <br/>
+
+                            </fieldset>
+                        </h:panelGroup>
+                    </h:form>
+                </div>
+            </div>
+        </ui:composition>
+    </body>
+</html>
+

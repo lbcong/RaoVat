@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:panelGrid columns="2">
+                <f:facet name="header">info student</f:facet>
+
+                <h:outputLabel    value="studen id :"/>
+                <h:inputText  value="#{customerController.memberId}"/>
+                <h:outputLabel   value="studen username :"/>
+                <h:inputText  value="#{customerController.username}"/>
+                <h:outputLabel value="pass  :"/>
+                <h:inputText  value="#{customerController.password}"/>
+                <h:outputLabel   value="email:"/>
+                <h:inputText  value="#{customerController.email}"/>
+                <h:outputLabel   value="phone :"/>
+                <h:inputText  value="#{customerController.phone}"/>
+                <h:outputLabel value="datecreate  :"/>
+                <h:inputText id="dateInput" value="#{customerController.dateCreated}"
+                             label="Date" >
+                    <f:convertDateTime pattern="dd-mm-yyyy" />
+                </h:inputText>
+                <input type="date" value="test"> test </input>
+
+
+
+                <f:facet name="footer">
+
+                    <h:commandButton value="edit" action="#{customerController.EditInformation()}"/>
+                </f:facet>
+            </h:panelGrid> 
+
+
+        </h:form>
+    </h:body>
+</html>
+

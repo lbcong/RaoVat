@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:x="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title>Trang chu</title>
+        <meta property="og:url"           content="http://www.your-domain.com/your-page.html" />
+        <meta property="og:type"          content="website" />
+        <meta property="og:title"         content="Your Website Title" />
+        <meta property="og:description"   content="Your description" />
+        <meta property="og:image"         content="http://www.your-domain.com/path/image.jpg" />
+        <!--        <link rel="stylesheet" type="text/css" href="arrow.css"/>
+                <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"/>-->
+        <!--        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+                <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>-->
+        <h:outputStylesheet library="css" name="css1.css"  />
+        <h:outputScript library="js" name="bootstrap.min.js" />
+        <h:outputScript library="test" name="jquery.min.js" />
+        <h:outputScript library="test" name="jquery.flexisel.js" />
+        <h:outputStylesheet library="test" name="style.css"  />
+        <h:outputStylesheet name="css/font-awesome.min.css"  />
+        <h:outputStylesheet library="css" name="bootstrap.css"  />
+        <h:outputStylesheet library="css" name="bootstrap.min.css"  />
+        
+        <h:outputStylesheet library="css" name="footer-distributed.css"  />
+        <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+    </h:head>
+    <body>
+        <h:outputScript rendered="#{messeger!=null}">
+            alert("#{messeger}");
+        </h:outputScript>
+        <div class="header">
+            <nav class="navbar">
+                <div class="container-fluid" style="height: auto; background-color: #292c2f">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <h:link rendered="true"  class="navbar-brand" outcome="trangchu"><h3>RAO VẶT</h3></h:link>
+                    </div>
+                    <div id="navbar" class="navbar-collapse collapse">
+                        <h:form><ul class="nav navbar-nav navbar-right">
+
+
+                                <li><h:commandLink rendered="#{customer!=null}" action="#{postController.SetupViewListPosted()}">#{customer.email}</h:commandLink></li>
+                                <li><h:commandLink rendered="#{customer!=null}" action="#{customerController.Logout()}">Đăng Xuất</h:commandLink></li>
+                                <li><h:link rendered="#{customer==null}" outcome="login">Đăng nhập</h:link></li>
+                                <li><h:link rendered="#{customer==null}" outcome="register">Đăng Kí</h:link></li>
+
+                                <li><h:commandLink rendered="#{customer!=null}" action="#{postController.ControlerSetUpView()}" >Đăng Tin
+                                        <f:param name="Action" value="setupposted"/>
+                                    </h:commandLink></li>
+                                <li><a href="#">Help</a></li>
+                            </ul></h:form>
+                        <form class="navbar-form navbar-left">
+
+                            <h:link rendered="true" outcome="trangchu"> <h:graphicImage library="images" name="logo.png" style="height:70px" /></h:link>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="container" >
+            <div class="col-md-9">
+                <div class="navbar-form">
+                    <h:form id="formsearch" class="form-inline"  >
+                        <div class="form-group">
+
+                            <h:inputText id="tittlesearch" class="form-control" size="40" x:placeholder="Tìm Kiếm" ></h:inputText>
+                        </div>
+                        <div class="form-group">
+                            <h:selectOneMenu id="province" class="form-control" style="width: 200px;" >
+                                <f:selectItem itemValue="" itemLabel="Toàn Quốc"/>
+                                <f:selectItems value="#{provineController.FindAllCity()}" var="p"
+                                               itemLabel="#{p.name}" itemValue="#{p.name}" />
+                            </h:selectOneMenu>
+                        </div>
+                        <div class="form-group">
+                            <h:selectOneMenu id="catagories"  class="form-control" style="width: 200px;" >
+                                <f:selectItem itemValue="" itemLabel="Tất Cả"/>
+                                <f:selectItems value="#{catagoriesController.FindAllCatagories()}" var="c"
+                                               itemLabel="#{c.name}" itemValue="#{c.name}" />
+                            </h:selectOneMenu>
+                        </div>
+
+                        <h:commandButton class="btn btn-default" value="Tìm"  style="background-color: #c00;color: #ffffff;width: 50px;" action="#{postController.ControlerFind()}">
+
+                        </h:commandButton>
+                    </h:form>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="navbar-form right_content ">
+                    <h:form class="form-inline" style="float:right" >
+
+                        <h:commandButton value="Giỏ hàng" class="btn btn-default" style="background-color: #c00;color: #ffffff;width: 85px;" x:title="Giỏ hàng" action="#{postController.SetupCart()}">
+                            <h:graphicImage library="images" name="cart.png" style="height:25px" /> (#{postController.listCart.size()})
+                        </h:commandButton>
+
+                    </h:form>
+                </div>
+            </div>
+        </div>
+
+        <div class="container" >
+
+            <div class="row ">
+
+                <ui:include src="/template/common/commonMenuCity.xhtml" />
+
+                <!--/.sidebar-offcanvas-->
+
+                <div class="col-md-9" >
+
+
+                    <div class="products">
+                        <h5 class="latest-product">Tin rao vặt của cá nhân</h5>		
+                        <h:panelGroup rendered="#{postController.paginator.recordsTotal>0?true:false}">
+                            <h:link class="view-all" rendered="true" outcome="tatcapost">Tổng kết quả tìm đươc #{postController.paginator.recordsTotal} , xem tất cả<span> </span></h:link> 
+                        </h:panelGroup>
+                    </div>
+                    <ui:include src="/template/common/commonListPostForView.xhtml">
+                        <ui:param name="list" value="#{postController.paginator.model}" ></ui:param>
+
+                    </ui:include>
+                    <div class="products">
+                        <h5 class="latest-product">Các sản phẩm đang được bán </h5>
+                        <h:panelGroup rendered="#{postController.paginator2.recordsTotal>0?true:false}">
+                            <h:link class="view-all" rendered="true" outcome="tatcaproduct">Tổng kết quả tìm đươc #{postController.paginator2.recordsTotal} , xem tất cả<span> </span></h:link> 
+                        </h:panelGroup>
+                    </div>
+                    <ui:include src="/template/common/commonListPostForViewcc.xhtml">
+                        <ui:param name="list" value="#{postController.paginator2.model}" ></ui:param>
+
+                    </ui:include>
+
+
+
+                </div>
+
+            </div>
+
+            <div class=" single_top">
+
+                <ul id="flexiselDemo1">
+                     <h:graphicImage library="images2" name="pi1.jpg" />
+                    <li><h:graphicImage library="images2" name="pi.jpg" /><div class="grid-flex"><a href="#">Bloch</a><p>Rs 850</p></div></li>
+                    <li><h:graphicImage library="images2" name="pi1.jpg" /><div class="grid-flex"><a href="#">Capzio</a><p>Rs 850</p></div></li>
+                    <li><h:graphicImage library="images2" name="pi2.jpg" /><div class="grid-flex"><a href="#">Zumba</a><p>Rs 850</p></div></li>
+                    <li><h:graphicImage library="images2" name="pi3.jpg" /><div class="grid-flex"><a href="#">Bloch</a><p>Rs 850</p></div></li>
+                    <li><h:graphicImage library="images2" name="pi4.jpg" /><div class="grid-flex"><a href="#">Capzio</a><p>Rs 850</p></div></li>
+                </ul>
+                <script type="text/javascript">
+                    $(window).load(function () {
+                        $("#flexiselDemo1").flexisel({
+                            visibleItems: 5,
+                            animationSpeed: 1000,
+                            autoPlay: true,
+                            autoPlaySpeed: 3000,
+                            pauseOnHover: true,
+                            enableResponsiveBreakpoints: true,
+                            responsiveBreakpoints: {
+                                portrait: {
+                                    changePoint: 480,
+                                    visibleItems: 1
+                                },
+                                landscape: {
+                                    changePoint: 640,
+                                    visibleItems: 2
+                                },
+                                tablet: {
+                                    changePoint: 768,
+                                    visibleItems: 3
+                                }
+                            }
+                        });
+
+                    });
+                </script>
+
+
+
+            </div>
+
+            <!---->
+
+
+
+        </div><!--container - body-->
+
+        <footer class="footer-distributed" >
+
+            <div class="footer-right">
+
+                <a href="#"><i class="glyphicon glyphicon-heart"></i></a>
+                <!--                    <a href="#"><i class="glyphicons-halflings-regular"></i></a>-->
+                <a href="#"><i class="glyphicon glyphicon-music"></i></a>
+                <a href="#"><i class="glyphicon glyphicon-envelope"></i></a>
+                <a href="#"><i class="glyphicon glyphicon-thumbs-up"></i></a>
+
+            </div>
+
+            <div class="footer-left">
+
+                <p class="footer-links">
+                    <a href="#"> raovat website Project</a>
+
+                </p>
+
+
+            </div>
+
+        </footer>
+
+
+
+
+
+
+    </body>
+</html>

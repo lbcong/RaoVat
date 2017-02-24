@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <body>
+        <ui:composition>
+            <h:outputStylesheet  library="css/cssadmin" name="copybt.css"  />
+
+            <div id="box">
+                <h3>Danh sách đơn đặt hàng</h3>
+
+                <table  class="table table-hover table-bordered table-condensed">
+                    <thead>
+                        <tr>
+                            <th style="width: 15px;text-align: left" ><a href="#">ID</a></th>
+                            <th style="width: 150px;text-align: left" ><a href="#">Người đặt hàng</a></th>
+                            <th style="text-align: left;width: 290px"><a href="#">Địa chỉ giao hàng</a></th>
+                            <th  style="width: 100px;text-align: left" ><a href="#">SĐT</a></th>
+                            <th style="width: 100px;text-align: left" ><a href="#">Ngày tạo</a></th>
+                            <th style="text-align: left"><a href="#">Tình trạng</a></th>
+                            <th style="text-align: left"><a href="#">Thao tác</a></th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <ui:repeat rendered="#{list.size()>0}"    var="p" value="#{list}" varStatus="status">
+                            #{makeOrderController.makeorder.status}
+                            <h:form id="Allmakeorder">
+                                <tr>
+                                    <td style="text-align: left">
+                                        <h:outputText value="#{p.idOrder}" />
+                                    </td>
+                                    <td style="text-align: left">
+                                        <h:outputText value=" #{p.memberID.username}" />
+                                    </td>
+                                    <td style="text-align: left ;width: 290px">
+                                        <h:outputText value=" #{p.address}" />
+                                    </td>
+                                    <td style="text-align: left">
+                                        <h:outputText value="#{p.phone}" />
+                                    </td>
+                                    
+                                    <td style="text-align: left">
+                                        <h:outputText value="#{p.createDated}" >
+                                            <f:convertDateTime pattern="dd-MM-yyyy"/>
+                                        </h:outputText>
+                                    </td>
+                                    <td style="text-align: left">
+                                        <h:outputText value="#{p.status}" />
+                                    </td>
+                                    <td style="text-align: left">
+
+                                        <select name="orderstatus" style="width: 148px;margin: 0 auto"   class="form-control text-overflow">
+
+                                            <option value="Chưa giao">Chưa giao</option>
+                                            <option value="Đang giao">Đang giao</option>
+                                            <option value="Đã giao">Đã giao</option>
+
+                                        </select>
+                                        <h:commandButton value="Cập nhật" class="btn-info" action="#{makeOrderController.SetupViewAllSearchMakeorderManager()}" >
+                                            <f:param name="index" value="#{status.index}"/>
+                                            <f:param name="Action" value="capnhat"/>
+                                        </h:commandButton>
+                                        <h:commandButton value="Xem chi tiết" class="btn-info" action="#{makeOrderController.SetupViewDetail()}" >
+                                            <f:param name="index" value="#{status.index}"/>
+                                            
+                                        </h:commandButton>
+                                    </td>
+
+                                </tr>
+
+                            </h:form>
+
+                        </ui:repeat>
+                    </tbody>
+                </table>
+
+
+            </div>
+        </ui:composition>
+    </body>
+</html>
+

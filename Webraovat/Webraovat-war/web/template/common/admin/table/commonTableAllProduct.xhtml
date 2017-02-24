@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <body>
+        <ui:composition>
+            <h:outputStylesheet  library="css/cssadmin" name="copybt.css"  />
+            <h:outputStylesheet  library="css/cssadmin" name="theme.css"  />
+            <h:outputStylesheet  library="css/cssadmin" name="style.css"  />
+
+            <div id="box">
+                <h3>Danh sách sản phẩm</h3>
+
+                <table  class="table table-hover table-bordered table-condensed">
+                    <thead>
+                        <tr>
+                            <th style="width: 15px;text-align: left" ><a href="#">ID</a></th>
+                            <th style="width: 150px;text-align: left" ><a href="#">Tên Sản Phẩm</a></th>
+                            <th style="text-align: left;width: 150px"><a href="#">Danh mục</a></th>
+                            <th  style="width: 100px;text-align: left" ><a href="#">Hình ảnh</a></th>
+                            <th style="width: 85px;text-align: left" ><a href="#">Tổng số lượng nhập</a></th>
+                            <th style="width: 70px;text-align: left" ><a href="#">Số lượng còn trong kho</a></th>
+                            <th style="width: 66px;text-align: left"><a href="#">Tình trạng</a></th>
+                            <th style="text-align: left"><a href="#">Giá</a></th>
+                            <th style="width: 100px;text-align: left"><a href="#">Nhà cung cấp</a></th>
+                            <th style="text-align: left"><a href="#">Thao tác</a></th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <ui:repeat rendered="#{list.size()>0}"    var="p" value="#{list}" varStatus="status">
+                            #{productController.postentity.memberId.username}
+                            <h:form id="Allmakeorder">
+                                <tr>
+                                    <td style="text-align: left">
+                                        <h:outputText value="#{p.productsentity.productID}" />
+                                    </td>
+                                    <td style="text-align: left">
+                                        <h:outputText value=" #{p.productsentity.name}" />
+                                    </td>
+                                    <td style="text-align: left">
+                                        <h:outputText value=" #{p.productsentity.categoriesId.name}" />
+                                    </td>
+                                    <td style="text-align: left">
+                                        <h:graphicImage library="images" name="#{p.productsentity.image}" style="height:70px" />                                      
+                                    </td>
+                                    <td style="text-align: left">
+                                        <h:outputText value=" #{p.productsentity.totalProduct}" />
+                                    </td>
+                                    <td style="text-align: left">
+                                        <h:outputText value=" #{p.productsentity.stroreProduct}" />
+                                    </td>
+                                    <td style="text-align: left">
+                                        <h:outputText value=" #{p.productsentity.stroreProduct>0?'Còn hàng':'Hết hàng'}" />
+                                    </td>
+                                    <td style="text-align: left">
+                                        <h:outputText value=" #{p.productsentity.price}" />
+                                    </td>
+                                    <td style="text-align: left">
+                                        <h:outputText value=" #{p.memberId.username}" />
+                                    </td>
+                                    
+                                    
+                                    <td style="text-align: left">
+
+                                        <h:commandButton style="margin: 3px" value="Sửa" class="btn-info" action="#{productController.SetupEditProduct()}" >
+                                            <f:param name="index" value="#{status.index}"/>
+                                            
+                                        </h:commandButton>
+                                        <h:commandButton style="margin: 3px" value="Xóa" class="btn-info" action="#{productController.SetupViewAllSearchProductForManager()}" >
+                                            <f:param name="index" value="#{status.index}"/>
+                                            <f:param name="Action" value="delete"/>
+                                        </h:commandButton>
+                                    </td>
+
+                                </tr>
+
+                            </h:form>
+
+                        </ui:repeat>
+                    </tbody>
+                </table>
+
+
+            </div>
+        </ui:composition>
+    </body>
+</html>
+

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <title>Bootstrap 101 Template</title>
+
+        <!-- Bootstrap -->
+
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </h:head>
+    <body>
+        <ui:composition template="/template/common/commonLayout.xhtml">
+
+            <ui:define name="content">
+                <div class="container" style="margin-top: 10%">
+                    <div class="row">
+                        <h:form class="form-horizontal" role="form" >
+                             <p:growl id="growl" showDetail="true" sticky="true" />
+                            <div class="form-group">
+                                <label class="control-label col-sm-2" ></label>
+                                <div class="col-sm-5">
+
+                                    <label class="control-label col-sm-5" ><h4>Ảnh sản phẩm</h4></label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2" for="email">Tên :</label>
+                                <div class="col-sm-5">
+                                    <h:outputLabel value="#{postController.getProductentity().image}"></h:outputLabel>
+                                    <h:graphicImage  library="images" name="#{postController.getProductentity().image}" style="height:350px;width:400px" />
+                                </div>
+                            </div>
+                   
+
+
+
+                        </h:form>
+                    </div>
+
+                    <div class="row">
+
+                        <h:form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <label class="control-label col-sm-2" ></label>
+                                <div class="col-sm-5">
+                                    <label class="control-label col-sm-8" >Nội dung tin</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2" >Chuyên mục:</label>
+                                <div class="col-sm-2">
+                                    <h:outputLabel style="border: none" class="form-control" value="#{postController.catagoriesentity.name}"/>
+                                    <h:inputHidden value="#{postController.catagoriesentity.catagoriesId}" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2" >Khu vực:</label>
+                                <div class="col-sm-2">
+                                    <h:outputLabel style="border: none" class="form-control" value="#{postController.provinceentity.name}"/>
+                                    <h:inputHidden value="#{postController.provinceentity.provinceid}" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2" for="pwd">Tên sản phẩm :</label>
+                                <div class="col-sm-4">          
+                                    <h:outputLabel style="border: none" class="form-control" value="#{postController.productentity.name}"/>
+                                    <h:inputHidden value="#{postController.productentity.name}" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2" for="email">Chuyên mục rao:</label>
+                                <div class="col-sm-5  radio">
+                                    <h:outputLabel style="border: none" class="form-control" value="#{postController.chuyenmuc}"/>
+                                    <h:inputHidden value="#{postController.entity.typeOfPost}" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2" for="pwd">Tựa đề:</label>
+                                <div class="col-sm-5">          
+                                    <h:outputLabel style="border: none" class="form-control" value="#{postController.entity.title}"/>
+                                    <h:inputHidden value="#{postController.entity.title}" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2" for="pwd">Nội dung tin:</label>
+                                <div class="col-sm-5">          
+                                    <h:inputTextarea rows="8" class="form-control" readonly="true" value="#{postController.entity.description}" ></h:inputTextarea>
+                                    <h:inputHidden value="#{postController.entity.description}"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2" for="pwd">Giá:</label>
+                                <div class="col-sm-4">          
+                                    <h:outputLabel style="border: none" class="form-control" value="#{postController.productentity.price}"/>
+                                    <h:inputHidden value="#{postController.productentity.price}" />
+                                </div>
+                            </div>
+
+
+                            <div class="form-group" style="margin-left: 9%">
+
+                            </div>  
+                            <div class="form-group">        
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <h:commandButton rendered="#{postController.chuoi!='edit'}" value="Đăng Tin" class="btn btn-default" action="#{postController.createProduct()}"/>
+                                </div>
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <h:commandButton rendered="#{postController.chuoi=='edit'}" value="Cập Nhật" class="btn btn-default" action="#{postController.EditPost()}"/>
+                                </div>
+                            </div>
+                        </h:form>
+
+                    </div>
+
+                </div>
+            </ui:define>
+        </ui:composition>
+
+    </body>
+</html>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <body>
+        <ui:composition>
+            <h:outputStylesheet  library="css" name="theme.css"  />
+            <h:outputStylesheet library="css" name="style.css"  />
+            <div id="box">
+                <h3 >Chi Tiết Bài Post</h3>
+                <div>
+                    <h:form  class="form1" enctype="multipart/form-data">
+                        <fieldset >
+                            <legend>Thông tin người đặt</legend>
+
+                            <label for="lastname">Tên : </label> 
+
+                            <h:inputText  disabled="true" value="#{makeOrderController.makeorder.memberID.username}" />
+
+
+                            <br />
+
+                            <label for="lastname">Email : </label> 
+
+                            <h:inputText disabled="true"  value="#{makeOrderController.makeorder.memberID.email}" />
+
+
+                            <br />
+                        </fieldset>
+                        <fieldset >
+                            <legend>Thông Tin Đơn đặt hàng</legend>
+
+                            <label >ID : </label> 
+                            <h:inputText disabled="true"  value="#{makeOrderController.makeorder.idOrder}" />
+
+                            <br />
+                            <label for="city">Địa chỉ nhận hàng : </label>
+                            <h:inputText disabled="true"  value="#{makeOrderController.makeorder.address}" />
+
+
+                            <br />
+                            <label for="city">SĐT nơi nhận hàng : </label>
+                            <h:inputText  disabled="true" value="#{makeOrderController.makeorder.phone}" />
+
+                            <br />
+                            <label for="city">Trạng thái đơn đặt hàng : </label>
+                            <h:inputText disabled="true"  value="#{makeOrderController.makeorder.status}" />
+
+
+                            <br />
+                            <label for="city">Ngày lập đơn : </label>
+                            <h:inputText disabled="true" value="#{makeOrderController.makeorder.createDated}">
+                                <f:convertDateTime pattern="dd-MM-yyyy"/>
+                            </h:inputText>
+
+
+
+                        </fieldset>
+                        <fieldset >
+                            <legend>Chi tiết đơn hàng</legend>
+                            <table  class="table table-hover table-bordered table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 15px;text-align: left" ><a href="#">ID</a></th>
+                                        <th style="width: 150px;text-align: left" ><a href="#">Tên Sản Phẩm</a></th>
+                                        <th  style="width: 100px;text-align: left" ><a href="#">Hình ảnh</a></th>
+                                        <th style="width: 85px;text-align: left" ><a href="#">Số lượng đặt</a></th>
+                                        <th style="text-align: left"><a href="#">Giá</a></th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <ui:repeat     var="p" value="#{makeOrderController.makeorder.orderdetailsCollection}" varStatus="status">
+                                        #{makeOrderController.orderdetails.productID.price}
+
+                                        <h:form id="Allmakeorder">
+                                            <tr>
+                                                <td style="text-align: left">
+                                                    <h:outputText value="#{p.productID.productID}" />
+                                                </td>
+                                                <td style="text-align: left">
+                                                    <h:outputText value="#{p.productID.name}" />
+                                                </td>
+
+                                                <td style="text-align: left">
+                                                    <h:graphicImage library="images" name="#{p.productID.image}" style="height:70px;width: 110px" />                                      
+                                                </td>
+
+                                                <td style="text-align: left">
+                                                    <h:outputText value="#{p.numberofproduct}" />
+                                                </td>
+                                                <td style="text-align: left">
+                                                    <h:outputText value="#{p.productID.price}" />
+                                                </td>
+
+
+
+
+                                            </tr>
+
+                                        </h:form>
+
+                                    </ui:repeat>
+                                </tbody>
+                            </table>
+
+
+                        </fieldset>
+
+
+
+
+
+
+
+                    </h:form>
+                </div>
+            </div>
+        </ui:composition>
+    </body>
+</html>
+

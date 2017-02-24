@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <body>
+        <ui:composition>
+            <h:outputStylesheet library="css" name="bootstrap.css"  />
+            <div class="header">
+                <nav class="navbar">
+                    <div class="container-fluid" style="height: auto; background-color: #292c2f">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <h:link rendered="true"  class="navbar-brand" outcome="trangchu"><h3>RAO VẶT</h3></h:link>
+                        </div>
+                        <div id="navbar" class="navbar-collapse collapse">
+                            <h:form><ul class="nav navbar-nav navbar-right">
+
+
+                                    <li><h:commandLink rendered="#{customer!=null}" action="#{postController.SetupViewListPosted()}">#{customer.email}</h:commandLink></li>
+                                    <li><h:commandLink rendered="#{customer!=null}" action="#{customerController.Logout()}">Đăng Xuất</h:commandLink></li>
+                                    <li><h:link rendered="#{customer==null}" outcome="login">Đăng nhập</h:link></li>
+                                    <li><h:link rendered="#{customer==null}" outcome="register">Đăng Kí</h:link></li>
+
+                                    <li><h:commandLink rendered="#{customer!=null}" action="#{postController.ControlerSetUpView()}" >Đăng Tin
+                                            <f:param name="Action" value="setupposted"/>
+                                        </h:commandLink></li>
+                                    <li><a href="#">Help</a></li>
+                                </ul></h:form>
+                            <form class="navbar-form navbar-left">
+
+                                <h:link rendered="true" outcome="trangchu"> <h:graphicImage library="images" name="logo.png" style="height:70px" /></h:link>
+                            </form>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+
+        </ui:composition>
+    </body>
+</html>
+
+

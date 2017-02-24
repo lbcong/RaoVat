@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <body>
+        <ui:composition>
+            <h:outputStylesheet  library="css" name="theme.css"  />
+            <h:outputStylesheet library="css" name="style.css"  />
+            <div id="box">
+                <h3 >Form Khóa Tài Khoản</h3>
+
+                <h:form id="blockform" class="form1">
+                    <fieldset id="personal">
+                        <legend>Thông tin</legend>
+                        <label for="lastname">ID user  : </label> 
+                        <h:outputText value="#{managerController.userData.member.memberId}"/>
+                        <br />
+                        <label for="lastname">Tên User  : </label> 
+                        <h:outputText value="#{managerController.userData.member.username}"/>
+                        <br />
+                        <br />
+                        <label for="firstname">ID Admin : </label>
+                        <h:outputText value="#{admin.memberId}"/>
+                        <br />
+                        <br />
+                        <label for="email">lý do khóa tài khoản : </label>
+                        <h:inputText  value="#{managerController.banlistuser.reason}"  >
+
+                        </h:inputText>
+                        <br />
+                        <br />
+                        <label for="email">Có gửi thông báo về Email không? </label>
+                        <h:selectOneMenu id="sendmail" style="width: 148px;margin: 0 auto"   class="form-control text-overflow">
+                            <f:selectItem itemLabel="Không" itemValue="Không"/>
+                            <f:selectItem itemLabel="Có" itemValue="Có"/>
+
+                        </h:selectOneMenu>
+                        <br />
+
+                        <br />
+                    </fieldset>
+
+                    <div align="center">
+                        <h:commandButton style="width: 100px"  value="Submit" action="#{managerController.SetupViewAllSearchUserForManager()}" > 
+
+                            <f:param name="Action" value="blockuser"/>
+                        </h:commandButton>
+
+
+                        <input style="width: 100px"  type="reset"  value="reset"/>
+                    </div>
+
+                </h:form>
+            </div>
+
+        </ui:composition>
+    </body>
+</html>
+

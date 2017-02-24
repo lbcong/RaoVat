@@ -1,0 +1,144 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:outputStylesheet  library="css/cssadmin" name="theme.css"  />
+        <h:outputStylesheet library="css/cssadmin" name="style.css"  />
+<!--        <h:outputScript library="plugins/jQuery" name="jQuery-2.2.0.min.js" />-->
+        <script>
+            $(document).ready(function () {
+                $("#flip1").click(function () {
+                    $("#blockform").slideToggle("slow");
+                });
+            });
+
+            $(document).ready(function () {
+                $("#flip2").click(function () {
+                    $("#detais").slideToggle("slow");
+                });
+            });
+        </script>
+
+        <style> 
+            #panel, #flip1,#flip2 {
+                padding: 5px;
+                text-align: center;
+                background-color: #e5eecc;
+                border: solid 1px #c3c3c3;
+            }
+
+            #panel {
+                padding: 50px;
+                display: none;
+            }
+        </style>
+
+        <div id="container">
+            <div id="header">
+                <h2>Xin Chào : #{manager.email}</h2>
+                <ui:include src="../template/common/admin/menu/commonTopMenu.xhtml" />
+            </div>
+            <div id="top-panel">
+                <ui:include src="../template/common/admin/menu/commonTopPanel.xhtml" />
+            </div>
+            <div id="wrapper">
+                <div id="content">
+                   
+                    <h:panelGroup >
+                        <ui:include   src="../template/common/admin/table/commonTableAllSearchPost.xhtml" >
+                            <ui:param name="list" value="#{postController.listView}" ></ui:param>  
+                        </ui:include>
+                    </h:panelGroup>
+                    <h:outputScript rendered="#{messeger!=null}">
+                        alert("#{messeger}");
+                    </h:outputScript>
+
+                    <div style="margin-top: -10px;">
+                        <h:form>
+                            <ul class="pagination pagination-sm">
+                                <li>
+
+                                    <h:commandLink action="#{postController.SetupViewAllSearchPostForManager()}">Prev
+                                        <f:param name="np" value="prv"/>
+                                        <f:param name="Action" value="nextprv"/>
+
+                                    </h:commandLink>
+                                </li>
+                                <ui:repeat     var="p" value="#{postController.trang}" varStatus="status">
+                                    <li>                                    
+                                        <h:commandLink action="#{postController.SetupViewAllSearchPostForManager()}">#{p}
+                                            <f:param name="id" value="#{p}"/>
+                                            <f:param name="Action" value="numberpage"/>
+                                        </h:commandLink>
+
+                                    </li>
+                                </ui:repeat>
+
+                                <li>
+
+                                    <h:commandLink action="#{postController.SetupViewAllSearchPostForManager()}">Next
+                                        <f:param name="np" value="next"/>
+                                        <f:param name="Action" value="nextprv"/>
+                                    </h:commandLink>
+                                </li>
+                            </ul>
+                        </h:form>
+
+                    </div>
+                    <div style="margin-top: -20px;margin-bottom: 10px">
+                        <strong>
+                            Tổng số kết quả tìm được #{postController.tongrecord}<br/>
+                            Trang #{postController.tranghientai}/#{postController.tongsotrang} trang
+                        </strong>
+                    </div>
+                    <h:outputScript rendered="#{messeger!=null}">
+                        alert(#{messeger});
+                    </h:outputScript>
+
+
+
+                    <h:panelGroup rendered="#{postController.typeForm=='block'?true:false}">
+                        <div id="flip1">Nhấn vào đây để ẩn bảng</div>
+                        <div id="blockform">
+
+                            <ui:include   src="../template/common/admin/form/commonBlockFormofSearchAll.xhtml" >
+                            </ui:include>
+
+                        </div>
+                    </h:panelGroup>
+
+
+                    <h:panelGroup rendered="#{postController.typeForm=='postdetail'?true:false}">
+                        <div id="flip2">Nhấn vào đây để ẩn bảng</div>
+                        <div id="detais">
+
+                            <ui:include   src="../template/common/admin/commonPostDetail.xhtml" >
+
+                            </ui:include>
+
+                        </div>
+                    </h:panelGroup>
+                </div>
+                <ui:include   src="../template/common/admin/slidebar/commonSlideBarAllPost.xhtml" >
+
+                </ui:include>
+            </div>
+            <div id="footer">
+                <div id="credits">
+                    Template by <a href="http://www.bloganje.com">Bloganje</a>
+                </div>
+
+            </div>
+        </div>
+    </h:body>
+</html>
+

@@ -1,0 +1,226 @@
+body{
+    background:#f7f6f0  url("#{resource['images/bg.jpg']}") repeat-x top;
+    color: #202020;
+    font-family: sans-serif;
+    font-size: 90px;
+}
+a, a:visited{
+    color:#a43708;
+}
+input{
+    border:1px solid #e8e7e1;
+}
+select{
+    border:1px solid #e8e7e1;
+}
+#header h2{
+    color:#FFF;
+}
+#content{
+    background:#FFF;
+}
+.content1{
+    background:#FFF;
+}
+#sidebar{
+    background:#FFF;
+}
+#sidebar h3{
+    background:#f7f6f0;
+    border-bottom:1px solid #e8e7e1;
+}
+#topmenu a,#topmenu a:visited{
+    color:#f7f6f0;
+    background:#bd3f09;
+}
+#topmenu a:hover{
+    color: #FFF;
+}
+#topmenu .current a, #topmenu .current a:hover, #topmenu .current a:visited{
+    color:#993400;
+    background: #FFF  url("#{resource['images/bg_menu_red.jpg']}") repeat-x top;
+    border-left: #FFF 1px solid;
+    border-right: #FFF 1px solid;
+}
+#top-panel{
+    background:#FFF;
+}
+.top-panel1{
+    background:#FFF;
+}
+table{
+    background:none;
+}
+td, th{
+    border:1px solid #e8e7e1;
+} 
+thead{
+    background:#f7f6f0;
+}
+#styleswitcher{
+    background:#FFFFFF;
+}
+#footer{
+    background:#FFF;
+}
+#box{
+    border:1px solid #e8e7e1;
+}
+.box{
+    border:1px solid #e8e7e1;
+}
+
+.box h3{
+    background:#f7f6f0;
+    border-bottom:1px solid #e8e7e1;
+    color:#a43708;
+}
+
+#box h3{
+    background:#f7f6f0;
+    border-bottom:1px solid #e8e7e1;
+    color:#a43708;
+}
+/***************
+          Forms
+***************/
+form#form fieldset {
+    border:1px solid #e8e7e1;
+}
+form#form legend {
+    border:1px solid #e8e7e1;
+    background:#fff  url("#{resource['images/form_red.gif']}") repeat-x center left;
+    color:#a43708;
+}
+form#form input {
+    border:1px solid #e8e7e1;
+    background:#fff  url("#{resource['images/form_red.gif']}") repeat-x top left;
+}
+form#form textarea {
+    border:1px solid #e8e7e1;
+    background:#fff url("#{resource['images/form_red.gif']}")  repeat-x bottom left;
+}
+form#form option {
+    background:#FFF;
+}
+form#form optgroup {
+    background:#e8e7e1;
+}
+form#form optgroup option {
+
+}
+
+
+
+/***************
+        Home
+***************/
+#infobox{
+    border:1px solid #e8e7e1;
+}
+#infobox h3{
+    background:#f7f6f0;
+    border-bottom:1px solid #e8e7e1;
+    color:#a43708;
+}
+#rightnow {
+    border:1px solid #e8e7e1;
+}
+#rightnow .reallynow {
+    background:#f7f6f0;
+    color:#a43708;
+}
+#rightnow h3{
+    background:#f7f6f0;
+    border-bottom:1px solid #e8e7e1;
+}
+
+
+.pagination {
+    display: inline-block;
+    padding-left: 0;
+    margin: 22px 0;
+    border-radius: 0px;
+}
+.pagination > li {
+    display: inline;
+}
+.pagination > li > a,
+.pagination > li > span {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    line-height: 1.428571429;
+    text-decoration: none;
+    background-color: #fafcfd;
+    border: 1px solid #dddddd;
+    margin-left: -1px;
+}
+.pagination > li:first-child > a,
+.pagination > li:first-child > span {
+    margin-left: 0;
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+}
+.pagination > li:last-child > a,
+.pagination > li:last-child > span {
+    border-bottom-right-radius: 0px;
+    border-top-right-radius: 0px;
+}
+.pagination > li > a:hover,
+.pagination > li > span:hover,
+.pagination > li > a:focus,
+.pagination > li > span:focus {
+    background-color: #2cc990;
+}
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+    z-index: 2;
+    color: #333333;
+    background-color: #2cc990;
+    border-color: #2cc990;
+    cursor: default;
+}
+.pagination > .disabled > span,
+.pagination > .disabled > a,
+.pagination > .disabled > a:hover,
+.pagination > .disabled > a:focus {
+    color: #000000;
+    background-color: #fafcfd;
+    border-color: #dddddd;
+    cursor: not-allowed;
+}
+.pagination-lg > li > a,
+.pagination-lg > li > span {
+    padding: 10px 16px;
+    font-size: 20px;
+}
+.pagination-lg > li:first-child > a,
+.pagination-lg > li:first-child > span {
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+}
+.pagination-lg > li:last-child > a,
+.pagination-lg > li:last-child > span {
+    border-bottom-right-radius: 0px;
+    border-top-right-radius: 0px;
+}
+.pagination-sm > li > a,
+.pagination-sm > li > span {
+    padding: 5px 10px;
+    font-size: 14px;
+}
+.pagination-sm > li:first-child > a,
+.pagination-sm > li:first-child > span {
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+}
+.pagination-sm > li:last-child > a,
+.pagination-sm > li:last-child > span {
+    border-bottom-right-radius: 0px;
+    border-top-right-radius: 0px;
+}

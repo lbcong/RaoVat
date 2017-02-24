@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <body>
+        <ui:composition>
+            <h:outputStylesheet  library="css" name="theme.css"  />
+            <h:outputStylesheet library="css" name="style.css"  />
+            <div id="box">
+                <h3 >Chi Tiết </h3>
+                <div>
+                    <h:form  class="form1" enctype="multipart/form-data">
+                        <fieldset >
+                            <legend>Nhà cung cấp</legend>
+                            <label for="lastname">Nhà cung cấp : </label> 
+
+                            <div>
+                                <h:selectOneMenu   value="#{productController.postController.getMemberentity().email}" >
+                                    <f:selectItems value="#{customerController.getAllSupplier()}" var="d"
+                                                   itemLabel="#{d.username}" itemValue="#{d.email}" />
+                                </h:selectOneMenu>
+
+                            </div>
+
+
+                            <br />
+                        </fieldset>
+                        <fieldset >
+                            <legend>Thông Tin Bài Post</legend>
+
+                            <label >Tiêu Đề : </label> 
+                            <h:inputText   value="#{productController.postController.getEntity().title}" />
+
+                            <br />
+                            <label for="city">Nội Dung : </label>
+                            <h:inputTextarea   value="#{productController.postController.getEntity().description}"/>
+
+
+                            <br />
+                            <label for="city">Vị Trí : </label>
+                            <div >
+                                <h:selectOneMenu  value="#{productController.postController.getProvinceentity().provinceid}" >
+                                    <f:selectItems value="#{provineController.FindAllCity()}" var="c"
+                                                   itemLabel="#{c.name}" itemValue="#{c.provinceid}" />
+                                </h:selectOneMenu>
+                            </div>
+                            <br />
+                           
+
+                        </fieldset>
+                        <fieldset >
+                            <legend>Thông Tin Sản Phẩm</legend>
+
+                            <label for="country">Hình Ảnh : </label> 
+                            <br/>
+                            <div >          
+                                <h:inputFile value="#{productController.postController.part}"  size="60">
+                                    chon file
+                                </h:inputFile>
+
+                            </div>
+
+                            <br />                           
+                            <label for="city">Danh mục : </label>
+                            <div >
+                                <h:selectOneMenu  value="#{productController.postController.getCatagoriesentity().catagoriesId}" >
+                                    <f:selectItems value="#{catagoriesController.FindAllCatagories()}" var="d"
+                                                   itemLabel="#{d.name}" itemValue="#{d.catagoriesId}" />
+                                </h:selectOneMenu>
+                            </div>
+
+                            <br />
+                            <label for="state">Tên Sản Phẩm : </label>
+                            <h:inputText   value="#{productController.postController.getProductentity().name}" ></h:inputText>
+
+                            <br />
+                            <label for="tel">Giá : </label>
+                            <h:inputText   value="#{productController.postController.getProductentity().price}" ></h:inputText>
+
+                            <br />
+                            <label for="tel">Tổng số lượng nhập : </label>
+                            <h:inputText   value="#{productController.postController.getProductentity().totalProduct}" ></h:inputText>
+
+                            
+                        </fieldset>
+
+                        <div style="text-align: center;margin-top: 20px;margin-bottom: 20px;margin-left: auto;margin-right: auto">
+                            <h:commandButton class="button1" style="margin: 3px;" value="Thêm"  action="#{productController.SetupViewAllSearchProductForManager()}" >
+
+                                <f:param name="Action" value="add"/>
+                            </h:commandButton>
+
+
+                        </div>
+
+
+
+
+
+
+
+                    </h:form>
+                </div>
+            </div>
+        </ui:composition>
+    </body>
+</html>
+

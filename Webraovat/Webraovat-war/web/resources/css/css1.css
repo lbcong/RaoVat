@@ -1,0 +1,263 @@
+
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+    width: 70%;
+    margin: auto;
+}
+
+html,
+body {
+    height: 100%;
+    /* The html and body elements cannot have any padding or margin. */
+}
+.fa-arrow-right:hover {
+    color: #41822f;
+
+
+}
+
+
+
+
+/*mũi tên trái phải-------------------------------------------------------*/
+
+
+.right_arrow{float:right;border-color:transparent transparent transparent #f1c40f;border-style:solid;border-width:12px;display:block;float:right;font-size:0;height:0;padding:0;width:0}
+.left_arrow{float:left;border-color:transparent #26cd08 transparent transparent;border-style:solid;border-width:12px;display:block;font-size:0;height:0;padding:0;float:left;width:0}
+.navigation_ads{float:right;display:block;width:233px;margin-bottom:-25px;right:0;top:10px;position:absolute}
+
+.back_to_list a{text-align: center;float: left;color:#080808;text-decoration:none;width:85px;background:#26cd08;padding:5px;font-size:11px;}
+.next_ad a{text-align: center;float:right;color:white;text-decoration:none;display:block;text-align:right;width:75px;background:#f1c40f;padding:5px;font-size:11px}
+
+
+.back_to_list a:hover{
+
+    color: #f0f0f0;
+}
+.next_ad a:hover{
+
+    color: #080808;
+}
+
+/*-------------------------------------------------------*/
+
+
+.test {
+    border-radius: 5px;
+    border-width: 1px;
+    border-style: solid;
+    border-collapse: collapse;
+    border-color: magenta;
+
+}
+
+.right-col {
+    margin-left: 4px;
+    margin-right: 2px;
+    margin-top: 5px;
+    margin-bottom: 2px;
+    padding: 5px;
+
+}
+
+.left-col{
+    margin-top: 2px;
+    margin-bottom: 2px
+
+
+}
+
+.col-tittle {
+
+    margin-top: 5px ;
+    margin-bottom: 5px
+}
+
+.thongtinpost {
+    padding-left: 0px;
+
+}
+
+
+
+.text-luuy{
+    text-align: left;
+    font-size:  14px!important;
+    color: #999;
+    padding:10px 0;
+    font-family: sans-serif;
+    display: block;
+    
+
+}
+.sodienthoai {
+    border-radius: 5px;
+    height: 35px;
+    margin-top: 1px;
+    margin-bottom:5px; 
+    padding: 2px;
+    font-family: sans-serif;
+    background-color: #fcf8e3;
+    color: black;
+    font-weight: bold;
+}
+.email {
+    font-family: sans-serif;
+    border-radius: 5px;
+    border-width: 1px;
+    
+    margin-top: 1px;
+    margin-bottom:10px;
+    padding: 2px;
+    background-color: #fcf8e3;
+    color: black;
+    font-weight: bold;
+    height: 35px;
+}
+
+.lienhe {
+    height: 35px;
+    font-family: sans-serif;
+    border-radius: 5px;
+    font-weight: bold;
+
+    text-height: max-size;
+    margin-top: 10px;
+    margin-bottom:5px; 
+    text-align: left;
+    padding: 2px;
+    background-color: #fcf8e3;
+    color: black;
+}
+.muahangantoan {
+    border-radius: 5px;
+
+    margin-top:6px;
+    margin-bottom: 6px;
+    padding: 4px;
+    background-color: #fcf8e3;
+    color: black;
+
+}
+
+.text-tittle-muahangantoan{
+    font-family: sans-serif;
+    text-align: left;
+    font-size: 15px;
+    color: #245269 ; 
+    font-weight: bolder;
+    margin-bottom: 9px;
+
+}
+
+.text-noidung-muahangantoan{
+    font-family: sans-serif;
+    text-align: left;
+    font-size: 15px;
+    color: #245269 ; 
+
+}
+
+.text-thongtinpost {
+    font-size: 15px;
+    text-align: left;
+    font-family: sans-serif;
+
+}
+
+
+
+.tittle-trangview {
+    font-family: sans-serif;
+
+    font-size: 15px;
+    text-transform: uppercase;
+    text-align: left;
+
+}
+
+
+
+
+
+
+.row-trangview {
+    margin: 8px;
+
+}
+
+/*datascroller primes---------------------------------*/
+.ui-datascroller-header {
+    background-color: #41822f
+
+}
+
+/*-----------------------------------------*/
+.table td{
+
+    height: auto;
+    text-indent: inherit;
+    font-size: 14px;
+    padding-right: 15px;
+}
+
+
+
+.col2 {
+    width: 620px;
+    padding-left: 10px;
+
+}
+
+.table {
+    border: none;
+
+}
+
+
+
+/* Wrapper for page content to push down footer */
+/*#wrap {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin-top: -150px;
+     Negative indent footer by it's height 
+    margin: 0 auto -60px;
+}*/
+
+/* Set the fixed height of the footer here */
+#push,
+#footer {
+    height: 60px;
+}
+#footer {
+    background-color: #f5f5f5;
+}
+
+/* Lastly, apply responsive CSS fixes as necessary */
+@media (max-width: 767px) {
+    #footer {
+        margin-left: -20px;
+        margin-right: -20px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+/*#wrap > .container {
+    padding-top: 60px;
+}*/
+.container .credit {
+    margin: 20px 0;
+}
+
+code {
+    font-size: 80%;
+}

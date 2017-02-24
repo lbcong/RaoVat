@@ -1,0 +1,609 @@
+/*********************
+        HTML Elements
+*********************/
+*{
+    margin:0;
+    padding:0;
+}
+img, div,a { behavior:  url("")}
+body{
+    font-size: 12px;
+    font-family: sans-serif,Arial, Tahoma, Verdana;
+}
+a, a:visited , a:hover{
+    text-decoration:none;
+}
+a:hover{
+    color: #D20005;
+
+}
+img{
+    border:0;
+    margin:1px;
+}
+p{
+    padding:3px;
+}
+h2{
+
+}
+input{
+    padding:2px;
+}
+select{
+    padding:2px;
+}
+/*********************
+        Structure
+*********************/
+#container{
+    width:1348px;
+    margin-left:auto;
+    margin-right:auto;
+}
+#header{
+    width:1348px;
+}
+#header h2{
+    margin-top:20px;
+}
+#content{
+    width:1120px;
+    float:left;
+    margin:10px 0 10px 0;
+    padding:10px;
+}
+.content1{
+    width:1310px;
+    float:left;
+    margin:10px 0 10px 0;
+    padding:10px;
+}
+#sidebar{
+    background:#FFF;
+    width:180px;
+    float:right;
+    margin:10px 0 10px 0;
+    padding:10px;
+}
+#footer{
+    clear:both;
+    padding:5px;
+    margin-top:10px;
+}
+#box h3{
+    padding:5px;
+    font-size:14px;
+}
+
+.box h3{
+    padding:5px;
+    font-size:14px;
+}
+/*********************
+        Sidebar
+*********************/
+#sidebar ul{
+    font-size: 16px;
+    list-style:none;
+    line-height:22px;
+}
+
+#sidebar ul li ul li{
+    border-bottom: solid 1px;
+}
+
+#sidebar li{
+    margin: 8px;
+
+}
+
+
+
+#sidebar ul li a,#sidebar ul li a:visited{
+    padding-left:19px;
+    text-decoration:none;
+    margin:0 3px;
+    display:block;
+}
+#sidebar ul li a:hover{
+    background-color: #036fab;
+    color: white;
+    text-decoration:none;
+}
+#sidebar ul li ul{
+    margin-left:10px;
+}
+#sidebar h3{
+    padding:2px;
+    font-size:14px;
+}
+/*********************
+  TopMenu, Top-Panel
+*********************/
+#topmenu{
+    margin-left: -29px;
+    
+   
+    margin-top:23px;
+    width:1110px;
+    voice-family:inherit;
+}
+#topmenu ul{
+    list-style:none;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 300;
+}
+#topmenu li{
+    display: inline-block;
+    width: 172px;
+    height: 25px;
+    line-height: 25px;
+    background-color: brown;
+    position: relative;
+    font-size: 16px;
+    font-weight: 300;
+}
+#topmenu a {
+    color: white;
+    display: block;
+    
+}
+#topmenu a:hover{
+    color: #FF0;  
+    background-color: #6d384c;
+}
+
+.sub_menu{
+    display:none ;
+    position: absolute;
+}
+
+#topmenu .sub_menu li{
+    margin-left: 0px;
+    width: 172px;
+    background-color: #000;
+  
+}
+#topmenu .sub_menu a{
+    color: #FFF;
+}
+
+#topmenu li:hover .sub_menu{
+    display: block;
+    
+}
+
+/*----------------------------------------*/
+#top-panel{
+    background:#FFF;
+    padding:5px;
+    height:20px;
+    float:left;
+    width:1338px;
+}
+#top-panel ul{
+    list-style:none;
+}
+#top-panel ul li{
+    display:inline;
+    line-height:20px;
+}
+#top-panel ul li a{
+    padding-left:19px;
+    text-decoration:none;
+    margin:0 3px;
+    display:inline-block;
+}
+#top-panel a:hover{
+    text-decoration:underline;
+}
+
+/*-------------------------*/
+.top-panel1{
+    background:#FFF;
+    padding:5px;
+    height:20px;
+    float:left;
+    width:1320px;
+}
+/*********************
+                Other
+*********************/
+.a-right{text-align:right;}
+.a-left{text-align:left;}
+.a-center{text-align:center;}
+#pager{
+
+    margin:5px;
+    height:25px;
+}
+#styleswitcher{
+    float:right;
+}
+#styleswitcher ul{
+    list-style:none;
+    line-height:10px;
+}
+#styleswitcher li{
+    height:12px;
+    display:inline;
+}
+#footer ul {
+    list-style:none;
+}
+#footer li {
+    display:inline;
+}
+a#defswitch {
+    width:15px;
+    height:10px;
+    margin: 3px 0 3px 0;
+    background-color:#bd3f09;
+    font-size: 10px;
+    color:#bd3f09;
+    display:inline-block;
+}
+a#blueswitch {
+    width:15px;
+    height:10px;
+    margin: 3px 0 3px 0;
+    background-color:#375b91;
+    font-size: 8px;
+    color:#375b91;
+    display:inline-block;
+}
+a#greenswitch {
+    width:15px;
+    height:10px;
+    margin: 3px 0 3px 0;
+    background-color:#d0e0b8;
+    font-size: 8px;
+    color:#d0e0b8;
+    display:inline-block;
+}
+a#brownswitch {
+    width:15px;
+    height:10px;
+    margin: 3px 0 3px 0;
+    background-color:#654322;
+    font-size: 8px;
+    color:#654322;
+    display:inline-block;
+}
+a#mixswitch {
+    width:15px;
+    height:10px;
+    margin: 3px 0 3px 0;
+    background-color:#294145;
+    font-size: 8px;
+    color:#294145;
+    display:inline-block;
+}
+#credits{
+    clear:both;
+    width:200px;
+    float:left;
+}
+/*********************
+                Tables
+*********************/
+table{
+    margin:5px;
+    border-collapse: collapse;
+    table-layout:auto;
+    width:98%;
+}
+td, th{
+    padding: 2px;
+} 
+thead{
+
+}
+/*********************
+                Home
+*********************/
+#infowrap li{
+    display:inline;
+}
+#infobox{
+    width:100%;
+    float:left;
+    margin-top:10px;
+}
+#infobox h3{
+    padding:5px;
+    font-size:14px;
+}
+.margin-left{
+    margin-left:5px;
+}
+#rightnow .reallynow {
+    padding: 5px;
+    font-size:14px;
+}
+#rightnow h3{
+    padding:2px;
+    padding: 0 10px;
+    font-size:14px;
+}
+#rightnow .reallynow span {
+    display: block;
+    text-align: left;
+    float: left;
+    padding:0 2px;
+    font-size:14px
+}
+#rightnow .reallynow a {
+    text-decoration:none;
+    display: block;
+    text-align: right;
+    float: right;
+    padding:0 0 0 18px;
+    margin-left:4px;
+    font-weight:normal;
+    font-size:12px;
+}
+#rightnow .reallynow a:hover{
+    text-decoration:underline;
+}
+#rightnow .youhave {
+    font-size:  12px;
+    padding: 10px;
+}
+#rightnow a {
+    font-weight: bold;
+}
+/*********************
+                Forms
+*********************/
+form{
+    padding:10px;
+    margin:0 auto;
+    font-size: 15px;
+}
+form#form img{
+    width:400px;
+    height:350px;
+    padding:5px;
+    overflow:auto;
+
+}
+form#form fieldset {
+    display:block;
+    padding:5px 10px 5px 10px;
+    line-height:20px;
+    margin-bottom:10px;
+}
+form#form legend {
+    font-size:12px;
+    font-weight:bold;
+    margin-bottom:5px;
+    padding:3px;
+    width:254px;
+}
+form#form label {
+    clear:left;
+    display:block;
+    float:left;
+    width:200px;
+    text-align:right;
+    padding-right:10px;
+    margin-bottom:20px;
+    margin-top: 10px;
+}
+form#form input {
+    padding:3px;
+    width: 600px;
+    height: 30px;
+    margin-top: 10px;
+    margin-bottom:20px;
+    
+}
+form#form select {
+    margin-left:5px;
+}
+form#form textarea {
+    width:700px;
+    height:150px;
+    padding:5px;
+    overflow:auto;
+}
+form#form option {
+    background:#FFF;
+}
+form#form optgroup option {
+
+}
+form#form .button1, form.form .button2 {
+    padding-right:5px;
+    cursor:pointer;
+    width:205px;
+    margin-left:8px;
+    font-weight:bold;
+}
+form#form #button1:hover, form#form #button2:hover {
+    background-position:center left;
+}
+/*********************
+               Forms1
+*********************/
+form{
+    padding:10px;
+    margin:0 auto;
+}
+form.form1 img{
+    width:400px;
+    height:350px;
+    padding:5px;
+    overflow:auto;
+
+}
+form.form1  fieldset {
+    display:block;
+    padding:5px 10px 5px 10px;
+    line-height:20px;
+    border:1px solid #e8e7e1;
+    margin-bottom:10px;
+}
+form.form1  legend {
+    font-size:12px;
+    font-weight:bold;
+    margin-bottom:5px;
+    padding:3px;
+    width:254px;
+    border:1px solid #e8e7e1;
+    background:#fff  url("/Webraovat-war/faces/javax.faces.resource/images/form_red.gif") repeat-x center left;
+    color:#a43708;
+}
+form.form1  label {
+    clear:left;
+    display:block;
+    float:left;
+    width:200px;
+    text-align:right;
+    padding-right:10px;
+    margin-bottom:5px;
+}
+form.form1  input {
+    padding:3px;
+    width: 600px;
+    margin-bottom:5px;
+}
+form.form1 select {
+    margin-left:5px;
+}
+form.form1 textarea {
+    width:700px;
+    height:150px;
+    padding:5px;
+    overflow:auto;
+}
+form.form1 .button1, form.form1 .button2 {
+    padding-right:5px;
+    cursor:pointer;
+    width:150px;
+    margin-left:8px;
+    font-weight:bold;
+}
+form.form1 .button1:hover, form.form1 .button2:hover {
+    background-position:center left;
+}
+/*********************
+               search
+*********************/
+
+form.form2 img{
+    width:180px;
+    height:350px;
+    padding:5px;
+    overflow:auto;
+
+}
+form.form2  fieldset {
+    display:block;
+    padding:5px 10px 5px 10px;
+    line-height:20px;
+    border:1px solid #e8e7e1;
+    margin-bottom:10px;
+}
+form.form2  legend {
+    font-size:12px;
+    font-weight:bold;
+    margin-bottom:5px;
+    padding:3px;
+    width:180px;
+    border:1px solid #e8e7e1;
+    background:#fff  url("/Webraovat-war/faces/javax.faces.resource/images/form_red.gif") repeat-x center left;
+    color:#a43708;
+}
+form.form2  label {
+    clear:left;
+    display:block;
+    float:left;
+    width:126px;
+    text-align:right;
+    padding-right:10px;
+    margin-bottom:5px;
+}
+form.form2  input {
+    padding:3px;
+    width: 140px;
+    margin-bottom:5px;
+}
+form.form2 select {
+    margin-left:5px;
+}
+
+form.form2 .button1, form.form1 .button2 {
+    padding-right:5px;
+    cursor:pointer;
+    width:70px;
+    margin-left:8px;
+    font-weight:bold;
+}
+form.form2 .button1:hover, form.form2 .button2:hover {
+    background-position:center left;
+}
+
+/*********************
+              
+/*********************
+        Icons
+*********************/
+.icon{
+    padding-left:19px;
+    text-decoration:none;
+    height:20px;
+    font-size:medium;
+    margin:0 3px;
+    display:inline-block;
+    line-height:20px;
+}
+
+/*-------------------------------------------*/
+/*thuoc tinh text*/
+.text-overflow{
+    text-overflow: ellipsis;
+    overflow: hidden;
+     white-space: nowrap;
+}
+
+/*-------------------------------------------*/
+.box{
+    border:1px solid #e8e7e1;
+}
+.box h3{
+    background:#f7f6f0;
+    border-bottom:1px solid #e8e7e1;
+    color:#a43708;
+    padding:5px;
+    font-size:14px;
+}
+
+/*--------------------------------------------*/
+.user{background:transparent  url("/Webraovat-war/faces/javax.faces.resource/images/icons/user.png")no-repeat left;}
+.useradd{background:transparent url("/Webraovat-war/faces/javax.faces.resource/images/icons/user_add.png")no-repeat left;}
+.group{background:transparent url(../img/icons/group.png) no-repeat left;}
+.search{background:transparent url(../img/icons/magnifier.png) no-repeat left;}
+.online{background:transparent url(../img/icons/world.png) no-repeat left;}
+.pagenew{background:transparent url(../img/icons/page_add.png) no-repeat left;}
+.rss{background:transparent url(../img/icons/rss.png) no-repeat left;}
+.feed{background:transparent url(../img/icons/feed.png) no-repeat left;}
+.report{background:transparent url(../img/icons/report.png) no-repeat left;}
+.house{background:transparent url(../img/icons/house.png) no-repeat left;}
+.manage{background:transparent url(../img/icons/cog.png) no-repeat left;}
+.manage_page{background:transparent url(../img/icons/page_gear.png) no-repeat left;}
+.folder{background:transparent url(../img/icons/folder.png) no-repeat left;}
+.promotions{background:transparent url(../img/icons/coins.png) no-repeat left;}
+.cart{background:transparent url(../img/icons/cart.png) no-repeat left;}
+.folder_table{background:transparent url(../img/icons/folder_page.png) no-repeat left;}
+.shipping{background:transparent url(../img/icons/car.png) no-repeat left;}
+.invoices{background:transparent url(../img/icons/page_white_text_width.png) no-repeat left;}
+.addorder{background:transparent url(../img/icons/folder_page_add.png) no-repeat left;}
+.add{background:transparent url(../img/icons/add.png) no-repeat left;}
+.app_add{background:transparent url(../img/icons/application_add.png) no-repeat left;}
+.report_seo{background:transparent url(../img/icons/report_link.png) no-repeat left;}
+.modules{background:transparent url(../img/icons/bricks.png) no-repeat left;}
+.modules_manage{background:transparent url(../img/icons/bricks_gear.png) no-repeat left;}

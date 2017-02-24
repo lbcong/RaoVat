@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <body>
+        <ui:composition template="/template/common/commonLayout.xhtml">
+
+            <ui:define name="content">
+                <div id="wrap">
+                    <div class="container" style="margin-top: 10%">
+                        <div class="row">
+                            <div class="col-md-10">
+                                <ui:include src="/template/common/commonListPostForEditBookmark.xhtml">
+                                    <ui:param name="list" value="#{postController.listBM}" ></ui:param>
+
+                                </ui:include>
+                            </div>
+                             <div style="float: right;width: 195px" class="col-xs-2 col-sm-3 sidebar-offcanvas "  >
+                                <h:form>
+                                   
+                                    <div class="list-group" >
+
+                                        <h:commandButton class="list-group-item btn-edit" style="width: 200px" value="Bài đã đăng" action="#{postController.SetupViewListPosted()}" ></h:commandButton>
+                                        <br/>
+                                        <h:commandButton class="list-group-item btn-edit" style="width: 200px" value="Bài yêu thích " action="#{postController.SetupViewBookmark()}" ></h:commandButton>
+                                        <br/>
+                                        <h:commandButton class="list-group-item btn-edit" style="width: 200px" value="Thông tin cá nhân   " action="#{customerController.SetupEdit()}" ></h:commandButton>
+                                        <br/>
+                                        <h:commandButton class="list-group-item btn-edit" style="width: 200px" value="Thay đổi mật khẩu" action="changePassword.xhtml" ></h:commandButton>
+                                        <br/>
+                                        <h:commandButton class="list-group-item btn-edit" style="width: 200px" value="Lịch sử đặt hàng" action="#{postController.SetupListorder()}" ></h:commandButton>
+                                    </div>
+
+                                </h:form>
+                            </div><!--/.sidebar-offcanvas-->
+                        </div>
+                    </div>
+                </div>
+            </ui:define>
+        </ui:composition>
+
+    </body>
+</html>
+

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <body>
+        <ui:composition>
+
+
+
+
+
+            <h:form class="form-horizontal" role="form">
+
+
+                <p:dataTable rowIndexVar="index" rendered="#{list.size()>0}"  class="order-table"  var="p" value="#{list}" reflow="true" rows="5" paginator="true">
+                    <p:column headerText="post id">
+                        <h:outputText value="#{p.postId}" />
+                    </p:column>
+
+                    <p:column headerText="member id">
+                        <h:outputText value="#{p.memberId.memberId}" />
+                    </p:column>
+
+                    <p:column headerText="tittle">
+                       <h:commandLink action="#{postController.ViewPost()}">
+                        <h:outputText value="#{p.title}" />
+                        <f:param name="indexrow" value="#{index}"/>
+                        </h:commandLink>
+                    </p:column>
+
+                    <p:column headerText="provine id">
+                        <h:outputText value="#{p.provinceId.provinceid}" />
+                    </p:column>
+
+                    <p:column headerText="post day">
+                        <h:outputText value="#{p.postDate}" >
+                            <f:convertDateTime pattern="dd-MM-yyyy"/>
+                        </h:outputText>
+                    </p:column>
+
+                    <p:column headerText="expri day">
+                        <h:outputText value="#{p.experiDate}" >
+                            <f:convertDateTime pattern="dd-MM-yyyy"/>
+                        </h:outputText>
+                    </p:column>
+
+                    <p:column headerText="delete post">
+                        <h:commandButton value="delete" action="#{postController.DeletePost()}" >
+                            <f:param name="id" value="#{p.postId}" />
+                        </h:commandButton>
+                    </p:column>
+
+                    <p:column headerText="edit post">
+                        <h:commandButton value="edit" action="#{postController.SetupEditPost()}" >
+                            <f:param name="id" value="#{p.postId}" />
+                            <f:param name="Action" value="setupeditpost"/>
+                        </h:commandButton>
+                    </p:column>
+
+                </p:dataTable>
+
+            </h:form>
+        </ui:composition>
+    </body>
+</html>
+
+

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <body>
+        <ui:composition>
+            <div id="topmenu">
+                <h:form> 
+                    <ul>
+                        <li>
+                            <h:commandLink   action="#{postController.SetupViewAllSearchPostForManager()}" >
+                                Quản Lý Bài Post
+
+                            </h:commandLink>
+                            <ul class="sub_menu">
+                                <li>
+                                    <h:commandLink   action="#{postController.SetupViewAllSearchPostForManager()}" >
+                                        Tất Cả Tin 
+
+                                    </h:commandLink>
+                                </li>
+                                <li>
+                                    <h:commandLink   action="#{postController.SetupViewSearchCheckPostForManager()}" >
+                                        Tin Đợi Duyệt
+
+                                    </h:commandLink>
+
+                                </li>
+                                <li>
+                                    <h:commandLink   action="#{postController.SetupViewExpPostForManager()}" >
+                                        Tin Hết Hạn 
+
+                                    </h:commandLink>
+                                </li>
+                                <li>
+                                    <h:commandLink   action="#{postController.SetupViewSearchBlockPostForManager()}" >
+                                        Tin Bị Block
+
+                                    </h:commandLink>
+                                </li>
+
+                            </ul>
+
+                        </li>
+                        <li>
+                            <a  href="#">
+                                Báo Cáo Thống Kê 
+                            </a>
+                            <ul class="sub_menu">
+                                <li>
+                                    <h:commandLink  action="#{managerController.SetupViewReportForManager()}" >
+                                        Báo Cáo Thống Kê Tin Đã Đăng
+                                    </h:commandLink>
+                                </li>
+                                
+                            </ul>
+
+                        </li>
+                        <li>
+                            <h:commandLink  action="#{makeOrderController.SetupViewAllSearchMakeorderManager()}" >
+                                Quản lý Đơn đặt hàng
+                            </h:commandLink>
+                        </li>
+                        <li>
+                            <h:commandLink  action="#{productController.SetupViewAllSearchProductForManager()}" >
+                                Quản lý sản phẩm
+                            </h:commandLink>
+                        </li>
+                        <li>
+                            <h:commandLink  action="#{postController.SetupViewAllSearchReportForManager()}" >
+                                Quản Lý Phản Hồi
+                            </h:commandLink>
+                        </li>
+                        <li>
+
+                            <h:commandLink   action="#{managerController.Logout()}" >
+                                Logout
+                            </h:commandLink>
+                        </li>
+                    </ul>
+                </h:form>
+            </div>
+        </ui:composition>
+    </body>
+</html>
+

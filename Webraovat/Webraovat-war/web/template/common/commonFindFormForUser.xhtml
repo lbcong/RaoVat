@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:x="http://xmlns.jcp.org/jsf/passthrough">
+    <body>
+        <ui:composition>
+
+            <div class="navbar-form" >
+                <h:form id="formsearch" class="form-inline"  >
+                    <div class="form-group">
+
+                        <h:inputText id="tittlesearch"  class="form-control" size="40" x:placeholder="Tìm Kiếm" ></h:inputText>
+                    </div>
+                    <div class="form-group">
+                        <h:selectOneMenu id="province" class="form-control" style="width: 200px;" >
+                            <f:selectItem itemValue="" itemLabel="Toàn Quốc"/>
+                            <f:selectItems value="#{provineController.FindAllCity()}" var="p"
+                                           itemLabel="#{p.name}" itemValue="#{p.name}" />
+                        </h:selectOneMenu>
+                    </div>
+                    <div class="form-group">
+                        <h:selectOneMenu id="catagories"  class="form-control" style="width: 200px;" >
+                            <f:selectItem itemValue="" itemLabel="Tất Cả"/>
+                            <f:selectItems value="#{catagoriesController.FindAllCatagories()}" var="c"
+                                           itemLabel="#{c.name}" itemValue="#{c.name}" />
+                        </h:selectOneMenu>
+                    </div>
+
+                    <h:commandButton class="btn btn-default" value="Tìm"  style="background-color: #c00;color: #ffffff;width: 50px;" action="#{postController.ControlerFind()}">
+
+                    </h:commandButton>
+                </h:form>
+            </div>
+
+
+
+        </ui:composition>
+    </body>
+</html>
+
+
